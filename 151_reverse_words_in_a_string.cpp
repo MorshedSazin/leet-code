@@ -19,9 +19,7 @@ public:
         while (ss >> word) words.push_back(word);
         
         reverse(words.begin(), words.end());
-        for(int i = 0; i < words.size(); ++i){
-          result += words[i]+' ';  
-        } 
+        for(int i = 0; i < words.size(); ++i) result += words[i]+' '; 
         
         result.erase(result.find_last_not_of(" \t") + 1);
         return result;
