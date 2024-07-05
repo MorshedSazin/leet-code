@@ -11,28 +11,19 @@ using namespace std;
 class Solution {
 public:
     string reverseWords(string s) {
-        s.erase(0, s.find_first_not_of(" \t"));
-        s.erase(s.find_last_not_of(" \t") + 1);
 
         vector<string> words;
         stringstream ss(s);
-        string word;
+        string word, result = "";
 
-        while (ss >> word) {
-            words.push_back(word);
-        }
-
-
+        while (ss >> word) words.push_back(word);
+        
         reverse(words.begin(), words.end());
-
-        string result = "";
-        for (int i = 0; i < words.size(); ++i) {
-            result += words[i];
-            if (i < words.size() - 1) {
-                result += " ";
-            }
-        }
-
+        for(int i = 0; i < words.size(); ++i){
+          result += words[i]+' ';  
+        } 
+        
+        result.erase(result.find_last_not_of(" \t") + 1);
         return result;
     }
 };
